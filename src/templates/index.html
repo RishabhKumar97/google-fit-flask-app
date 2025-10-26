@@ -1,0 +1,35 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Google Fit Metrics API</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 24px; color: #111; }
+        h1 { color: #0b66c3; }
+        pre { background: #f6f8fa; padding: 12px; border-radius: 6px; overflow: auto; }
+        .endpoint { margin-bottom: 18px; }
+        code { background:#eef2f6; padding:2px 6px; border-radius:4px; }
+    </style>
+    </head>
+    <body>
+    <h1>Google Fit Metrics API</h1>
+    <p>Available endpoints:</p>
+
+    <div class="endpoint">
+        <h2>1. GET <code>/metrics</code></h2>
+        <p>Response: List of all available metrics.</p>
+    </div>
+
+    <div class="endpoint">
+        <h2>2. GET <code>/metrics/&lt;metric_name&gt;</code></h2>
+        <p>Query parameters:</p>
+        <pre>
+    {
+    "entity": "entity_name"   (required, comma-separated for multiple),
+    "start_date": "YYYY-MM-DD" (optional),
+    "end_date": "YYYY-MM-DD"   (optional)
+    }</pre>
+        <p>Response: Metric data in JSON format.</p>
+    </div>
+    </body>
+    </html>
