@@ -2,3 +2,6 @@
 /src/__pycache__
 .env
 data_files/
+/src/test_presigned_url.py
+/test_refresh.py
+/test_upload.txt
