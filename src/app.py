@@ -5,7 +5,7 @@ from datetime import date
 from typing import Dict, List
 
 import pandas as pd
-from flask import Flask, render_template, request
+from flask import Flask, make_response, render_template, request
 
 from init import s3_client
 
@@ -152,7 +152,7 @@ def get_json_from_data(
 
     # Format date column as plain date string
     df_copy[date_col] = df_copy[date_col].apply(lambda x: x.strftime("%Y-%m-%d"))
-    return df_copy.to_json(orient="records", indent=4, date_format="iso")
+    return df_copy.to_json(orient="records", date_format="iso")
 
 
 @app.route("/metrics", methods=["GET"])
@@ -185,7 +185,9 @@ def get_metric_data(metric_name):
         start_date=start_date,
         end_date=end_date,
     )
-    return json_data
+    response = make_response(json_data)
+    response.headers["Content-Type"] = "application/json; charset=utf-8"
+    return response
 
 
 @app.route("/")
